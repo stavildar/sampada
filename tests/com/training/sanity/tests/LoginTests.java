@@ -74,7 +74,7 @@ public class LoginTests {
 		loginPOM.clickLoginBtn(); 
 	screenShot.captureScreenShot("TC017Adminloginsuccesful");
 	}
-	//TC018  -- To verify whether application allows admin to change the password in Edit Profile page
+	//TC018  -- To verify whether application allows student to change the password in Edit Profile page
 	@Test (priority=3)
 	public void validEditProfile() throws InterruptedException {
 		loginPOM.sendUserName("selenium");
