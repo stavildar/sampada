@@ -25,6 +25,7 @@ public class LoginDBTest {
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM loginPOM;
+	private FinalTestCases finaltest;
 	private static Properties properties;
 	private ScreenShot screenShot;
 	private GenericMethods genericMethods; 
@@ -41,6 +42,7 @@ public class LoginDBTest {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginPOM = new LoginPOM(driver);
+		finaltest = new FinalTestCases(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver);
 		genericMethods = new GenericMethods(driver); 
@@ -57,7 +59,7 @@ public class LoginDBTest {
 
 	@Test(dataProvider = "db-inputs", dataProviderClass = LoginDataProviders.class)
 	//TC68-To verify whether application displays details of added user as trainer by admin in database
-	public void loginDBTest(String userName, String password, String newuserfrstname, String newuserlstname, String newuseremail, String newuserphoneno, String newusername, String newuserpwd, String  newuserprofile) {
+	public void loginDBTest(String userName, String password, String newuserfrstname, String newuserlstname, String newuseremail, int newuserphoneno, String newusername, String newuserpwd, String  newuserprofile) {
 		// for demonstration 
 //		genericMethods.getElement("login", "id"); 
 				
@@ -65,8 +67,16 @@ public class LoginDBTest {
 		
 		loginPOM.sendPassword(password);
 		loginPOM.clickLoginBtn();
-		
-		screenShot.captureScreenShot(userName);
+		finaltest.AddUser();
+		finaltest.AddFirstName(newuserfrstname);
+		finaltest.AddLastName(newuserlstname);
+		finaltest.EmailID(newuseremail);
+		finaltest.UserPhonNo(newuserphoneno);
+		finaltest.NewUserName(newusername);
+		finaltest.NewUserPassowrd(newuserpwd);
+		finaltest.SelectUserProfile(newuserprofile);
+		finaltest.AddNewUser();
+		//screenShot.captureScreenShot(userName);
 
 	}
 

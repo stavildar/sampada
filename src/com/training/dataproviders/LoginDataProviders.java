@@ -19,9 +19,17 @@ public class LoginDataProviders {
 		Object[][] result = new Object[list.size()][]; 
 		int count = 0; 
 		for(LoginBean temp : list){
-			Object[]  obj = new Object[2]; 
+			Object[]  obj = new Object[9]; 
 			obj[0] = temp.getUserName(); 
-			obj[1] = temp.getPassword(); 
+			obj[1] = temp.getPassword();
+			obj[2] = temp.getUserFirstName();
+			obj[3] = temp.getUserLastName();
+			obj[4] = temp.getUserEmailId();
+			obj[5] = temp.getUserPhoneno();
+			obj[6] = temp.getUserNewName();
+			obj[7] = temp.getUserNewPwd();
+			obj[8] = temp.getUserProfile();
+			
 			
 			result[count ++] = obj; 
 		}

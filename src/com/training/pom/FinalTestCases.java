@@ -50,9 +50,9 @@ public class FinalTestCases {
 	{
 		this.emailID.sendKeys(UserEmailID);
 	}
-	public void UserPhonNo(String Number)
+	public void UserPhonNo(int Number)
 	{
-		this.phoneNo.sendKeys(Number);
+		this.phoneNo.sendKeys(String.valueOf(Number));
 	}
 	
 	public void NewUserName(String UserNewName)
