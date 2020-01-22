@@ -21,7 +21,7 @@ public class LoginTestData {
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM loginPOM;
-	private FinalTestCases FinalTest;
+	private FinalTestCases finaltest;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -36,7 +36,7 @@ public class LoginTestData {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginPOM = new LoginPOM(driver);
-		FinalTest = new FinalTestCases(driver);
+		finaltest = new FinalTestCases(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver);
 		// open the browser
@@ -49,18 +49,24 @@ public class LoginTestData {
 	}
 
 	@Test(dataProvider = "excel-inputs", dataProviderClass = LoginDataProviders.class)
-	public void loginDBTest(String userName, String password) {
-		loginPOM.sendUserName(userName);
-		loginPOM.sendPassword(password);
+	//TC67 - To verify whether application allows admin to add multiple new user as a trainer by entering valid credentials in mandatory fields only
+	public void loginDBTest(String FirstName, String LastName, String eMail, String Phone, String Login, String Password) 
+	{
+		loginPOM.sendUserName("admin");
+		loginPOM.sendPassword("admin@123");
 		loginPOM.clickLoginBtn();
-		FinalTest.AddFirstName(First Name);
-		FinalTest.AddLastName(AddAnotherLastName);
-		FinalTest.EmailID(UserEmailID);
-		FinalTestNewUserName(UserNewName);
-		FinalTest.NewUserPassowrd(UserNewPassword);
-		FinalTest.AddNewUser();
+		finaltest.AddUser();
+		finaltest.AddFirstName(FirstName);
+		finaltest.AddLastName(LastName);
+		finaltest.EmailID(eMail);
+		finaltest.UserPhonNo(Phone);
+		finaltest.NewUserName(Login);
+		finaltest.NewUserPassowrd(Password);
+		finaltest.AddNewUser();
 		//screenShot.captureScreenShot(userName);
 
 	}
+	
+	
 
 }

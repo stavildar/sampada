@@ -17,14 +17,19 @@ public class FinalTestCases {
 	private WebElement LastName;
 	@FindBy(xpath ="//input[@id='email']")
 	private WebElement emailID;
+	@FindBy(xpath="//input[@id='phone']")
+	private WebElement phoneNo;
 	@FindBy(xpath="//input[@id='username']")
 	private WebElement NewName;
-	@FindBy(xpath = "//input[@id='qf_3945d0']")
+	@FindBy(xpath = "//div[@id='password-group']//input[@type='radio' and @value='0']")
 	private WebElement SelectEnterPassword;
 	@FindBy(xpath ="//input[@id='password']")
 	private WebElement NewPassword;
 	@FindBy(xpath ="//button[@name='submit']")
 	private WebElement AddUser;
+	@FindBy(xpath="//div[@class = 'filter-option-inner-inner']")
+	private WebElement UserProfile;
+	
 	
 	public void AddUser()
 	{
@@ -45,6 +50,10 @@ public class FinalTestCases {
 	{
 		this.emailID.sendKeys(UserEmailID);
 	}
+	public void UserPhonNo(String Number)
+	{
+		this.phoneNo.sendKeys(Number);
+	}
 	
 	public void NewUserName(String UserNewName)
 	{
@@ -59,6 +68,10 @@ public class FinalTestCases {
 	 public void AddNewUser()
 	 {
 		 this.AddUser.click();
+	 }
+	 public void SelectUserProfile(String ProfileName)
+	 {
+		 this.UserProfile.sendKeys(ProfileName);
 	 }
 	
 }

@@ -16,6 +16,7 @@ import com.training.dao.ELearningDAO;
 import com.training.dataproviders.LoginDataProviders;
 import com.training.generics.GenericMethods;
 import com.training.generics.ScreenShot;
+import com.training.pom.FinalTestCases;
 import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
@@ -55,7 +56,8 @@ public class LoginDBTest {
 
 
 	@Test(dataProvider = "db-inputs", dataProviderClass = LoginDataProviders.class)
-	public void loginDBTest(String userName, String password) {
+	//TC68-To verify whether application displays details of added user as trainer by admin in database
+	public void loginDBTest(String userName, String password, String newuserfrstname, String newuserlstname, String newuseremail, String newuserphoneno, String newusername, String newuserpwd, String  newuserprofile) {
 		// for demonstration 
 //		genericMethods.getElement("login", "id"); 
 				
