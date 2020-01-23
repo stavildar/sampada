@@ -50,7 +50,25 @@ public class LoginTestData {
 
 	@Test(dataProvider = "excel-inputs", dataProviderClass = LoginDataProviders.class)
 	//TC67 - To verify whether application allows admin to add multiple new user as a trainer by entering valid credentials in mandatory fields only
-	public void loginDBTest(String FirstName, String LastName, String eMail, int Phone, String Login, String Password) 
+//	public void loginDBTest(String FirstName, String LastName, String eMail, String Phone, String Login, String Password) 
+//	{
+//		loginPOM.sendUserName("admin");
+//		loginPOM.sendPassword("admin@123");
+//		loginPOM.clickLoginBtn();
+//		finaltest.AddUser();
+//		finaltest.AddFirstName(FirstName);
+//		finaltest.AddLastName(LastName);
+//		finaltest.EmailID(eMail);
+//		finaltest.UserPhonNo(Phone);
+//		finaltest.NewUserName(Login);
+//		finaltest.NewUserPassowrd(Password);
+//		finaltest.AddNewUser();
+//		//screenShot.captureScreenShot(userName);
+//
+//	}
+//	
+	//TC69 -To verify whether application displays error message upon entering invalid details while creating new user by admin 
+	public void InvalidDataTest(String FirstName, String LastName, String eMail, String Phone, String Login, String Password)
 	{
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
@@ -64,7 +82,6 @@ public class LoginTestData {
 		finaltest.NewUserPassowrd(Password);
 		finaltest.AddNewUser();
 		//screenShot.captureScreenShot(userName);
-
 	}
 	
 	
